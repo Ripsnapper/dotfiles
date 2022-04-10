@@ -3,6 +3,7 @@
 set -xe
 
 mkdir -p ~/.local/share
+mkdir -p ~/.local/state/zsh
 
 # Install miniplug and clone omz
 curl \

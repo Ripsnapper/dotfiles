@@ -7,6 +7,8 @@ export HISTFILE=$XDG_STATE_HOME/zsh/history
 
 export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=sway
+
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export GOPATH=$XDG_DATA_HOME/go
@@ -17,4 +19,4 @@ export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/startup.py
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export WGETRC=$XDG_CONFIG_HOME/wget/wgetrc
 
-export EDITOR=vim
+export EDITOR=nvim
