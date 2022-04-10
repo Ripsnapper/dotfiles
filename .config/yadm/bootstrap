@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+set -xe
+
+mkdir -p ~/.local/share
+
+# Install miniplug and clone omz
+curl \
+  -sL --create-dirs \
+  https://git.sr.ht/~yerinalexey/miniplug/blob/master/miniplug.zsh \
+  -o $HOME/.local/share/miniplug.zsh
+
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.local/share/ohmyzsh
