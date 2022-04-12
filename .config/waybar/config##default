@@ -97,4 +97,4 @@
     "exec": "playerctl metadata --format '{\"text\": \"{{title}} by {{ artist }}\", \"tooltip\": \"{{playerName}} : {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click": "playerctl play-pause",
   }
-}
+}]
