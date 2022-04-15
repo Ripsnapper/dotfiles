@@ -8,6 +8,7 @@ export HISTFILE=$XDG_STATE_HOME/zsh/history
 export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
+export MOZ_ENABLE_WAYLAND=true
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export GNUPGHOME=$XDG_DATA_HOME/gnupg

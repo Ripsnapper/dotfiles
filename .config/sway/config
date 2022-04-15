@@ -137,16 +137,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id /home/nico/.config/waybar/launch_waybar.sh
+exec_always /home/nico/.config/waybar/launch_waybar.sh
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-	bindsym l exec --no-startup-id swaylock, mode "default"
+	bindsym l exec swaylock, mode "default"
 	bindsym e exit
-	bindsym s exec --no-startup-id systemctl suspend, mode "default"
-	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-	bindsym r exec --no-startup-id systemctl reboot, mode "default"
-	bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+	bindsym s exec systemctl suspend, mode "default"
+	bindsym h exec systemctl hibernate, mode "default"
+	bindsym r exec systemctl reboot, mode "default"
+	bindsym Shift+s exec systemctl poweroff, mode "default"
 
 	# back to normal: Enter or Escape
 	bindsym Return mode "default"
@@ -211,23 +211,23 @@ exec_always /home/nico/.local/bin/import-gsettings \
 	font-name:gtk-font-name
 
 #Firefox
-exec --no-startup-id "MOZ_ENABLE_WAYLAND=1 firefox"
+exec "MOZ_ENABLE_WAYLAND=1 firefox"
 assign [class="Firefox"] workspace number 1
 for_window [title="Picture-in-Picture"] floating enable
 
 #Keypass
-exec --no-startup-id keepassxc
+exec keepassxc
 assign [app_id="^org.keepassxc.KeePassXC$"] number 9
 
 #####Notifications####
-exec --no-startup-id swaync
+exec_always swaync
 bindsym $mod+Home exec swaync-client -t
 
 ### Polkit ###
 exec lxpolkit
 
 # Idle
-exec_always flock -n /home/nico/.sway_idle.lock -c \
+exec_always flock -n /home/nico/.sway_idle.lock \
 	swayidle -w timeout 300 'swaylock -f' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
