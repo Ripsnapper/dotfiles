@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'mg979/vim-visual-multi'
 Plug 'junegunn/vim-easy-align'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -60,3 +61,9 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Enable airline tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" replace selection with result of expresseion
+xmap <Leader>c "cc<C-R>=<C-R>c<CR><ESC>
+smap <Leader>c "cc<C-R>=<C-R>c<CR><ESC>

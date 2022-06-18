@@ -137,7 +137,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always /home/nico/.config/waybar/launch_waybar.sh
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -200,6 +199,9 @@ bindsym $mod+x [urgent=latest] focus
 bindsym Print exec swayshot && notify-send "Screenshot saved"
 bindsym Shift+Print exec swayshot region && notify-send "Screenshot saved"
 
+# Update Dbus Session
+exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 #############################
 #    Startup Applications   #
 #############################
@@ -210,12 +212,15 @@ exec_always /home/nico/.local/bin/import-gsettings \
 	cursor-theme:gtk-cursor-theme-name\
 	font-name:gtk-font-name
 
-#Firefox
+# Waybar
+exec_always /home/nico/.config/waybar/launch_waybar.sh
+
+# Firefox
 exec "MOZ_ENABLE_WAYLAND=1 firefox"
 assign [class="Firefox"] workspace number 1
 for_window [title="Picture-in-Picture"] floating enable
 
-#Keypass
+# Keypass
 exec keepassxc
 assign [app_id="^org.keepassxc.KeePassXC$"] number 9
 
@@ -232,8 +237,6 @@ exec_always flock -n /home/nico/.sway_idle.lock \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
-# Update Dbus Session
-exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 # Device specific settings
 include local/*.conf
