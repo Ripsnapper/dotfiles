@@ -23,6 +23,8 @@ miniplug load
 # HOTKEYS
 bindkey "^R" fzf-history-widget
 
+eval $(dircolors -b)
+alias ls="ls --color"
 
 # ALIASES
 alias vim=nvim
