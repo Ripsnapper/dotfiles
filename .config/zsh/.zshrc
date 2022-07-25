@@ -20,6 +20,11 @@ miniplug plugin 'zsh-users/zsh-autosuggestions'
 
 miniplug load
 
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+
 # HOTKEYS
 bindkey "^R" fzf-history-widget
 

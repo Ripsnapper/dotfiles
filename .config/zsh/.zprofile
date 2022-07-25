@@ -19,5 +19,6 @@ export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/startup.py
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export WGETRC=$XDG_CONFIG_HOME/wget/wgetrc
+export WINEPREFIX=$XDG_DATA_HOME/wine
 
 export EDITOR=nvim
