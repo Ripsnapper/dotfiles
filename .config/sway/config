@@ -205,6 +205,7 @@ exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPL
 #############################
 #    Startup Applications   #
 #############################
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 exec_always /home/nico/.local/bin/import-gsettings \
 	gtk-theme:gtk-theme-name \
@@ -233,10 +234,9 @@ exec lxpolkit
 
 # Idle
 exec_always flock -n /home/nico/.sway_idle.lock \
-	swayidle -w timeout 300 'swaylock -f' \
+	swayidle timeout 300 'swaylock-fancy -p' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
-
 
 # Device specific settings
 include local/*.conf
