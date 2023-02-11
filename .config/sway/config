@@ -195,12 +195,7 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 #Jump to urgent Window
 bindsym $mod+x [urgent=latest] focus
 
-#Screenshot
-bindsym Print exec swayshot && notify-send "Screenshot saved"
-bindsym Shift+Print exec swayshot region && notify-send "Screenshot saved"
-
-# Update Dbus Session
-exec dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+include @sysconfdir@/sway/config.d/*
 
 #############################
 #    Startup Applications   #
@@ -210,7 +205,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec_always /home/nico/.local/bin/import-gsettings \
 	gtk-theme:gtk-theme-name \
 	icon-theme:gtk-icon-theme-name \
-	cursor-theme:gtk-cursor-theme-name\
+	cursor-theme:gtk-cursor-theme-name \
 	font-name:gtk-font-name
 
 # Waybar
